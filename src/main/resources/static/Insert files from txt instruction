@@ -1,0 +1,14 @@
+RUN mysql WITH: 
+/usr/local/mysql/bin/mysql -u root -p --local-infile
+
+Change variable local_infile:
+SHOW GLOBAL VARIABLES LIKE 'local_infile';
+By:
+SET GLOBAL local_infile=1;
+
+Insert files:
+LOAD DATA LOCAL INFILE '/Users/piotrjakubowski/Desktop/ScrableApp/filename.txt'
+INTO TABLE polishwords
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\r\n'

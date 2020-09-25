@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/polishwords?serverTimezone=UTC&useLegacyDatetimeCode=false
+    username: springstudent2
+    password: springstudent2
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
