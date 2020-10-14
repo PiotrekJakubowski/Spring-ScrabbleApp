@@ -1,25 +1,24 @@
 package web.app.scrable.logic;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class WordLogic {
 
-    static private List<String> wordList = new ArrayList<>();
+    public Set<String> wordList;
 
-    public static List<String> getWordList() {
-        return wordList;
+    public WordLogic() {
+        wordList = new HashSet<>();
     }
 
-    public static void printAllKLength(List<Character> set, int k) {
+    public void findAllCollectionArrangement(List<Character> set, int k) {
         int n = set.size();
-        printAllKLengthRec(set, "", n, k);
+        addToListAllKLengthRec(set, "", n, k);
     }
 
     // The main recursive method
     // to print all possible
     // strings of length k
-    static void printAllKLengthRec(List<Character> set,
+    private void addToListAllKLengthRec(List<Character> set,
                                    String prefix,
                                    int n, int k) {
 
@@ -41,7 +40,7 @@ public class WordLogic {
 
             // k is decreased, because
             // we have added a new character
-            printAllKLengthRec(set, newPrefix,
+            addToListAllKLengthRec(set, newPrefix,
                     n, k - 1);
         }
     }
